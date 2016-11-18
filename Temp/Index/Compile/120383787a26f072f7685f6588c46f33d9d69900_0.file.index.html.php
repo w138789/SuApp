@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-02 18:53:23
+/* Smarty version 3.1.29, created on 2016-11-18 17:52:35
   from "D:\WWW\SUAPP\Index\Tpl\Goods\index.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57c95a23966665_78892703',
+  'unifunc' => 'content_582ecf63d0ed65_14259583',
   'file_dependency' => 
   array (
     '120383787a26f072f7685f6588c46f33d9d69900' => 
     array (
       0 => 'D:\\WWW\\SUAPP\\Index\\Tpl\\Goods\\index.html',
-      1 => 1472813601,
+      1 => 1472886577,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:../layout/head.html' => 1,
   ),
 ),false)) {
-function content_57c95a23966665_78892703 ($_smarty_tpl) {
+function content_582ecf63d0ed65_14259583 ($_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:../layout/head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -69,12 +69,12 @@ $_smarty_tpl->tpl_vars['k'] = $__foreach_v_0_saved_key;
     <p>
         <span>数量</span>
         <button type="button"
-                class="weui_btn weui_btn_mini weui_btn_primary"
+                class="weui_btn weui_btn_mini weui_btn_default"
                 onclick="reduce()">-
         </button>
         <span class="sum">1</span>
         <button type="button"
-                class="weui_btn weui_btn_mini weui_btn_primary"
+                class="weui_btn weui_btn_mini weui_btn_default"
                 onclick="plus()">+
         </button>
     </p>
@@ -164,7 +164,7 @@ $_smarty_tpl->tpl_vars['k'] = $__foreach_v_0_saved_key;
             dataType: 'json',
             success: function (data) {
                 if (data.status == 1) {
-                    alert(data.msg);
+                    $(".alert").css("display","block");
                 }
             },
             error: function () {
@@ -174,13 +174,23 @@ $_smarty_tpl->tpl_vars['k'] = $__foreach_v_0_saved_key;
     });
 <?php echo '</script'; ?>
 >
-<div id="toast" style="display: none;">
-    <div class="weui_mask_transparent"></div>
-    <div class="weui_toast">
-        <i class="weui_icon_toast"></i>
-        <p class="weui_toast_content">已完成</p>
+<div class="weui_dialog_alert alert" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">添加成功</strong></div>
+        <div class="weui_dialog_bd">商品已经成功添加到购物车</div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary alertnone">确定</a>
+        </div>
     </div>
 </div>
+<?php echo '<script'; ?>
+ type="text/javascript">
+    $('.alertnone').click(function () {
+        $('.alert').css('display', 'none');
+    });
+<?php echo '</script'; ?>
+>
 </body>
 </html><?php }
 }
