@@ -1,0 +1,109 @@
+{include file='../layout/head.html'}
+<div class="col-xs-12" style="margin-top: 50px; color: #666;">
+    <form action="" method="post">
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_hd">
+                    <label class="weui_label">收货人姓名</label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="text" name="consignee" id="consignee" class="weui_input" placeholder="收货人姓名"
+                           required="">
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd">
+                    <label for="" class="weui_label">省: </label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select name="province" id="province" class="weui_select" onchange="citys()" required="">
+                        <option value="">请选择省</option>
+                        {foreach from=$province key=k item=v}
+                        <option value="{$v.region_id}">{$v.region_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <div class="weui_cell weui_cell_select weui_select_after">
+                <div class="weui_cell_hd">
+                    <label for="" class="weui_label">市: </label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <select name="city" id="city" class="weui_select" onchange="districts()" required="">
+                        <option value="">请选择市</option>
+                    </select>
+                </div>
+            </div>
+                <div class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd">
+                        <label for="" class="weui_label">市: </label>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <select name="district" id="district" class="weui_select" required="">
+                            <option value="">请选择区</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd">
+                        <label class="weui_label">详细地址</label>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input type="text" name="address" class="weui_input" id="address" placeholder="详细地址" required="">
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd">
+                        <label class="weui_label">联系方式</label>
+                    </div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input type="text" name="mobile" class="weui_input" id="mobile" placeholder="手机" required="">
+                    </div>
+                </div>
+        </div>
+            <div class="weui_btn_area" style="margin-bottom: 60px;">
+                <button type="submit" class="weui_btn weui_btn_primary">保存</button>
+            </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function citys() {
+        var str = '<option value="">请选择市</option>';
+        var province = $('#province').val();
+        $.ajax({
+            url: '{$smarty.const.__APP__}?c=Address&a=city',
+            data: {
+                province: province,
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += '<option value="' + data[i].region_id + '">' + data[i].region_name + '</option>';
+                }
+                $('#city').html(str);
+            }
+        });
+    }
+
+    function districts() {
+        var str = '<option value="">请选择区</option>';
+        var city = $('#city').val();
+        $.ajax({
+            url: '{$smarty.const.__APP__}?c=Address&a=district',
+            data: {
+                city: city,
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    str += '<option value="' + data[i].region_id + '">' + data[i].region_name + '</option>';
+                }
+                $('#district').html(str);
+            }
+        });
+    }
+
+</script>
+{include file='../layout/bottom.html'}

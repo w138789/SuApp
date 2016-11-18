@@ -1,0 +1,33 @@
+<nav class="navbar navbar-fixed-bottom">
+    <ul id="nav">
+        <a href="{$smarty.const.__APP__}"><li class="home"><span class="glyphicon glyphicon-home
+"></span><p>首页</p></li></a>
+        <a href="{$smarty.const.__APP__}?c=Category"><li class="category"><span class="glyphicon glyphicon-th-large
+"></span><p>分类</p></li></a>
+        <a href="{$smarty.const.__APP__}?c=Mycart"><li class="mycart"><span class="glyphicon glyphicon-shopping-cart"></span><p>购物车</p></li></a>
+
+        <a href="{$smarty.const.__APP__}?c=User"><li class="user"><span class="glyphicon glyphicon-user"></span><p>我的</p></li></a>
+    </ul>
+</nav>
+<script>
+    var str = window.location.search;
+    str=str.substring(0,5);
+    if (str == '')
+    {
+        $('.home').css('color', '#04be02');
+    }
+    if (str == '?c=Ca')
+    {
+        $('.category').css('color', '#04be02');
+    }
+    if (str == '?c=My' || str == '?c=Ad')
+    {
+        $('.mycart').css('color', '#04be02');
+    }
+    if (str == '?c=Us')
+    {
+        $('.user').css('color', '#04be02');
+    }
+</script>
+</body>
+</html>

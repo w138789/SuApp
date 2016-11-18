@@ -1,0 +1,4 @@
+[TIME:]2016-08-31 11:41:10 ERROR:数据库连接错误,请检查配置项	
+[TIME:]2016-08-31 11:41:44 ERROR:mysql错误: Table 'su.su_wxmenu' doesn't exist<br>SQL: SELECT * FROM su_wxmenu	
+[TIME:]2016-08-31 12:44:11 ERROR:Call to undefined method WxMenuModel::access_token()D:\WWW\SUAPP\Admin\Controller\WxMenuController.class.php 第68行 	
+[TIME:]2016-08-31 12:44:49 ERROR:Call to undefined method Weixin::where()D:\WWW\SUAPP\Common\Lib\Weixin.class.php 第90行 	

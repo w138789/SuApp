@@ -1,0 +1,50 @@
+{include file="../layout/head.html"}
+<style>
+    .add {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .addfile {
+        float: left;
+        margin-bottom: 10px;
+    }
+</style>
+<form enctype="multipart/form-data" class="form-horizontal" action="" method="post">
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label" style="padding-top: 11px;">广告标签</label>
+
+        <div class="col-sm-8">
+            <select class="form-control1 ng-invalid ng-invalid-required" ng-model="model.select" required=""
+                    name="tid">
+                <option value="" selected="selected">选择标签</option>
+                {foreach from=$list key=k item=v}
+                <option value="{$v.tid}">{$v.ad_name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label" style="padding-top: 11px;">广告名称</label>
+
+        <div class="col-sm-8">
+            <input type="text" class="form-control1" id="focusedinput" placeholder="" name="ad_name" required="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label">上传图片</label>
+
+        <div class="col-sm-8">
+            <input type="file" name="file">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 sub">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="reset" class="btn btn-default">重置</button>
+        </div>
+    </div>
+</form>
+
+{include file="../layout/bottom.html"}

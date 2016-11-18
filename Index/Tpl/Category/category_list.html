@@ -1,0 +1,18 @@
+{include file="../layout/head.html"}
+
+<div class="col-xs-12 top" style="margin-bottom: 55px">
+    <div class="title">
+        <p><span></span>商品列表</p>
+    </div>
+    {if $goods}
+    {foreach from=$goods key=k item=v}
+    <a href="{$smarty.const.__APP__}?c=Goods&a=index&goods_id={$v.goods_id}">
+        <div class="col-xs-6 goods" style="border:1px solid #ccc; margin-right:-1px; margin-bottom:-1px;">
+            <img src="{$v.goods_thumb}" alt="" class="img-rounded" style="width: 100%">
+            <span class="goods-name">{$v.goods_name}</span>
+            <span class="goods-name goods-price">￥{$v.shop_price}</span>
+    </a>
+</div>
+{/foreach}
+{/if}
+{include file="../layout/bottom.html"}

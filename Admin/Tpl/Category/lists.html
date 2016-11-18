@@ -1,0 +1,45 @@
+{include file="../layout/head.html"}
+<div class="panel panel-warning" data-widget="" data-widget-static="">
+    <div class="panel-heading">
+        <h2>分类列表</h2>
+        <div class="panel-ctrls" data-actions-container="" data-action-collapse=""><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
+    </div>
+    <div class="panel-body no-padding" style="display: block;">
+        <table class="table table-striped">
+            <thead>
+            <tr class="warning">
+                <th>#</th>
+                <th>分类名称</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach from=$category key=k item=v}
+                <tr>
+                    <td>{$v.id}</td>
+                    <td>{$v.catename}</td>
+                    <td>
+                        <a href="{$smarty.const.__APP__}?c=Category&a=category_up&category_id={$v.id}" title="">
+                            <i class="fa fa-pencil-square-o icon_9"></i>
+                            修改
+                        </a>
+                        <a href="javascript:dels({$v.id})" class="font-red" title="">
+                            <i class="fa fa-times" icon_9=""></i>
+                            删除
+                        </a>
+                    </td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+function dels(id)
+{
+        if(confirm("确定删除吗？")) {
+            window.location.href="{$smarty.const.__APP__}?c=Category&a=category_del&category_id=" + id;
+        }
+}
+</script>
+{include file="../layout/bottom.html"}

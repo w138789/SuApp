@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作成功</title>
+</head>
+<body>
+<div>
+    <h2>操作成功</h2>
+</div>
+<p>
+    <?php
+    echo $msg; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span><span id="_time"><?php echo $time;?></span>秒钟后将进<a href="javascript:<?php echo $url; ?>">跳转111</a>
+    也可以<a href="<?php echo __ROOT__; ?>">返回首页</a></span>
+</p>
+<script type="text/javascript">
+    var time = document.getElementById("_time").innerHTML;
+    function revTime(){
+        time--;
+        if (time > 0){
+            document.getElementById("_time").innerHTML = time;
+        } else {
+			window.navigate(<?php echo $url; ?>);
+		}
+    }
+    setInterval("revTime()", 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+{include file="../layout/head.html"}
+<style>
+    .add {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .addfile {
+        float: left;
+        margin-bottom: 10px;
+    }
+</style>
+<form enctype="multipart/form-data" class="form-horizontal" action="" method="post">
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label" style="padding-top: 11px;">商品名称</label>
+
+        <div class="col-sm-8">
+            <input type="text" class="form-control1" id="focusedinput" placeholder="" name="goods_name">
+        </div>
+        <!--<div class="col-sm-2">-->
+        <!--<p class="help-block">商品名称</p>-->
+        <!--</div>-->
+    </div>
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label" style="padding-top: 11px;">库存数量</label>
+
+        <div class="col-sm-8">
+            <input type="text" class="form-control1" placeholder="" name="goods_number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label" style="padding-top: 11px;">商品分类</label>
+
+        <div class="col-sm-8">
+            <select class="form-control1 ng-invalid ng-invalid-required" ng-model="model.select" required=""
+                    name="cat_id">
+                <option value="0" selected="selected">顶级分类</option>
+                {foreach from=$category key=k item=v}
+                <option value="{$v.id}">{$v.catename}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label">上传图片</label>
+
+        <div class="col-sm-8">
+            <input type="file" name="file">
+        </div>
+    </div>
+    <div class="form-group goodsphoto">
+        <label for="focusedinput" class="col-sm-2 control-label">商品相册</label>
+
+        <div class="col-sm-8">
+            <span class="add"><a href="javascript:addimg()" id="addImg">[+]</a> </span>
+            <span class="addfile"><input type="file" name="img[]" class="ipt"/></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="focusedinput" class="col-sm-2 control-label"></label>
+        <div class="col-sm-8">
+            <script type="text/javascript" charset="utf-8"
+                    src="{$smarty.const.__PUBLIC__}/ueditor/ueditor.config.js"></script>
+            <script type="text/javascript" charset="utf-8"
+                    src="{$smarty.const.__PUBLIC__}/ueditor/ueditor.all.min.js"></script>
+            <script type="text/javascript" charset="utf-8"
+                    src="{$smarty.const.__PUBLIC__}/ueditor/lang/zh-cn/zh-cn.js"></script>
+            <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+            <script type="text/javascript">
+                var ue = UE.getEditor('editor');
+            </script>
+        </div>
+<!--        <script type="text/javascript" charset="utf-8"
+                src="{$smarty.const.__PUBLIC__}/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8"
+                src="{$smarty.const.__PUBLIC__}/ueditor/ueditor.all.min.js"></script>
+        <script type="text/javascript" charset="utf-8"
+                src="{$smarty.const.__PUBLIC__}/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+        <script type="text/javascript">
+            var ue = UE.getEditor('editor');
+        </script>-->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 sub">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="reset" class="btn btn-default">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        bindListener();
+    })
+    function addimg() {
+        $(".goodsphoto").after('<div class="form-group"><label for="focusedinput" class="col-sm-2 control-label"></label><div class="col-sm-8"><span class="add"><a href="#" name="rmlink">[-]</a></span><span class="addfile"><input type="file" name="img[]" class="ipt" /></span></div></div>');
+
+        // 为新元素节点添加事件侦听器
+        bindListener();
+    }
+    // 用来绑定事件(使用unbind避免重复绑定)
+    function bindListener() {
+        $("a[name=rmlink]").unbind().click(function () {
+            $(this).parent().parent().parent().remove();
+        })
+    }
+</script>
+{include file="../layout/bottom.html"}

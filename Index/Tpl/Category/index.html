@@ -1,0 +1,16 @@
+{include file="../layout/head.html"}
+
+
+<ul class="list-group top">
+{foreach from=$str key=k item=v}
+    <a href="{$smarty.const.__APP__}?c=Category&a=category_list&category_id={$v.id}"><li class="list-group-item">{$v.catename}</li></a>
+    {foreach from=$v.arr key=ke item=va}
+    	<a href="{$smarty.const.__APP__}?c=Category&a=category_list&category_id={$va.id}"><li class="list-group-item mix">{$va.catename}</li></a>
+    	{foreach from=$va.arr key=kes item=vas}
+    	<a href="{$smarty.const.__APP__}?c=Category&a=category_list&category_id={$vas.id}"><li class="list-group-item mixs">{$vas.catename}</li></a>
+	{/foreach}
+	{/foreach}
+{/foreach}
+</ul> 
+
+{include file="../layout/bottom.html"}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jd.css">
+    <script src="js/jd.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+</head>
+<style>
+.swiper-slide{
+	width: 100%;
+}
+.swiper-slide img{
+	width: 100%;
+}
+.p{
+	height: 5000px;
+}
+</style>
+<body>
+	<div class="hdS col-xs-12">
+		<div class="back" id="back"></div>
+		<div class="logo col-xs-2"></div>
+		<div class="sh col-xs-10">
+			<input type="text" class="inp">
+			<span>登录</span>
+		</div>
+	</div>
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+</div>
+<div class="fenlei col-xs-12">
+	<ul>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/1.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/2.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/3.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/4.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/1.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/2.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/3.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+		<li class="col-xs-3">
+			<a href="">
+				<img src="img/4.png" alt="">
+				<span>京东超市</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="body col-xs-12">
+	<div class="one box w100">
+		<div class="title">
+			<p><span></span>360数值</p>
+		</div>
+		<div class="aImg">
+			<a href="">
+				<img class="w100" src="img/1.jpg" alt="">
+			</a>
+		</div>
+	</div>
+</div>
+<div class="body col-xs-12">
+	<div class="one box w100">
+		<div class="title">
+			<p><span></span>超值购</p>
+		</div>
+		<div class="czleft col-xs-6">
+			<img class="w100" src="img/4.jpg" alt="">
+		</div>
+		<div class="czright col-xs-6">
+			<div>
+				<img class="w100" src="img/5.jpg" alt="">
+			</div>
+			<div>
+				<img class="w100" src="img/6.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+    <script src="js/swiper-3.3.1.min.js"></script>
+    <script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay : 1000,
+    
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+
+  })        
+  </script>
+</body>
+</html>

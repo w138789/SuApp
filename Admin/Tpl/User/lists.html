@@ -1,0 +1,39 @@
+{include file="../layout/head.html"}
+    <div class="input-group">
+        <input type="text" name="search" class="form-control1 input-search" placeholder="Search...">
+    <span class="input-group-btn">
+        <button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>
+    </span>
+    </div>
+    <div class="panel panel-warning" data-widget="" data-widget-static="">
+        <div class="panel-heading">
+            <h2>会员列表</h2>
+
+            <div class="panel-ctrls" data-actions-container="" data-action-collapse=""><span class="button-icon has-bg"><i
+                    class="ti ti-angle-down"></i></span></div>
+        </div>
+        <div class="panel-body no-padding" style="display: block;">
+            <table class="table table-striped">
+                <thead>
+                <tr class="warning">
+                    <th>#</th>
+                    <th>昵称</th>
+                    <th>头像</th>
+                    <th>加入时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$user key=k item=v}
+                <tr>
+                    <td>{$v.user_id}</td>
+                    <td>{$v.nickname}</td>
+                    <td><img width="60" src="{$v.headimgurl}" class="img-responsive" alt=""></td>
+                    <td>{if $v.subscribe_time neq 0}{$v.subscribe_time|date_format:'%Y-%m-%d %H:%M:%S'}{/if}</td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{$page}
+{include file="../layout/bottom.html"}
